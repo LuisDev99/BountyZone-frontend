@@ -33,4 +33,12 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-export default { Content, Body, Title, Image, StyledLink };
+const StyledComponents = {
+  Content,
+  Body,
+  Title,
+  Image,
+  StyledLink,
+};
+
+export default StyledComponents;
