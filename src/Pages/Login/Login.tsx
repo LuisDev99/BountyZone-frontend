@@ -1,7 +1,49 @@
 import React from "react";
+import { useHistory } from "react-router";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useAsyncEffect } from "use-async-effect";
+
+import StyledComponents from "./StyledComponents";
+import PlayerService from "../../Services/PlayerService";
+
+const { Button } = StyledComponents;
 
 function LoginPage() {
-  return <div>Login!</div>;
+  const history = useHistory();
+  const { loginWithRedirect, user, isAuthenticated } = useAuth0();
+
+  useAsyncEffect(async () => {
+    if (isAuthenticated && user) {
+      try {
+        // Check if the player exists
+        const response = await new PlayerService().getPlayerByID(user.email);
+
+        if (response.data.PlayerRole.Type === "Hunter") {
+          history.push("/hunters");
+        }
+
+        if (response.data.PlayerRole.Type === "Leader") {
+          history.push("/leaders");
+        }
+      } catch (e) {
+        // Backend will return 404 if the player does not have an account yet
+        // If no account was found for this user, take him to register page for him to choose a character
+        history.push("/register");
+      }
+    }
+  }, [isAuthenticated, user]);
+
+  return (
+    <div>
+      <Button
+        onClick={() => {
+          loginWithRedirect();
+        }}
+      >
+        Log Me In
+      </Button>
+    </div>
+  );
 }
 
 export default LoginPage;
