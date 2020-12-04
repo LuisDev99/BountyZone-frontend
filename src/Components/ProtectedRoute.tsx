@@ -1,31 +1,25 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Route, Redirect } from "react-router-dom";
 
-const ProtectedRoute = ({
-  component: Component,
-  isAuthenticated,
-  redirectIfNotAuth,
-  ...rest
-}: any) => {
+const ProtectedRoute = ({ component: Component, ...rest }: any) => {
+  const { isAuthenticated } = useAuth0();
+
+  if (!isAuthenticated) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/login",
+        }}
+      />
+    );
+  }
+
   return (
     <Route
       {...rest}
       render={props => {
-        if (isAuthenticated) {
-          return <Component {...rest} {...props} />;
-        } else {
-          alert("Not authenticated :( Taking you back to login");
-          return (
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: {
-                  from: props.location,
-                },
-              }}
-            />
-          );
-        }
+        return <Component {...rest} {...props} />;
       }}
     />
   );
