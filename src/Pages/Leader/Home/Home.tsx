@@ -1,8 +1,9 @@
 import React from "react";
 import useAsyncEffect from "use-async-effect";
 import { useGameContext } from "../../../GameContext";
-import PlayerService from "../../../Services/LeaderService";
+import PlayerService from "../../../Services/PlayerService";
 import { LeaderProfileCard } from "./LeaderProfileCard";
+import PopularVictims from "./PopularVictims";
 
 export default function Home() {
   const { player, leader, setLeaderContext } = useGameContext();
@@ -31,6 +32,7 @@ export default function Home() {
   return (
     <div>
       <LeaderProfileCard leader={leader} />
+      <PopularVictims />
     </div>
   );
 }
