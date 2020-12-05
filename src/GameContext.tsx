@@ -7,9 +7,9 @@ export interface GameContext {
   player?: Player;
   leader?: Leader;
   hunter?: Hunter;
-  setPlayer?: (player: Player) => void;
-  setLeader?: (leader: Leader) => void;
-  setHunter?: (hunter: Hunter) => void;
+  setPlayerContext?: (player: Player) => void;
+  setLeaderContext?: (leader: Leader) => void;
+  setHunterContext?: (hunter: Hunter) => void;
 }
 
 const GameAppContext = React.createContext<GameContext>({});
@@ -19,9 +19,9 @@ export function useGameContext() {
 }
 
 export function GameProvider({ children }: any) {
-  const [player, setPlayer] = useState<Player | undefined>(undefined);
-  const [leader, setLeader] = useState<Leader | undefined>(undefined);
-  const [hunter, setHunter] = useState<Hunter | undefined>(undefined);
+  const [player, setPlayerContext] = useState<Player | undefined>(undefined);
+  const [leader, setLeaderContext] = useState<Leader | undefined>(undefined);
+  const [hunter, setHunterContext] = useState<Hunter | undefined>(undefined);
 
   return (
     <GameAppContext.Provider
@@ -29,9 +29,9 @@ export function GameProvider({ children }: any) {
         hunter,
         leader,
         player,
-        setPlayer,
-        setHunter,
-        setLeader,
+        setPlayerContext,
+        setHunterContext,
+        setLeaderContext,
       }}
     >
       {children}
