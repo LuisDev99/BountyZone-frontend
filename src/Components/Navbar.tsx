@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { SidebarData } from "./SidebarData";
+import { Route } from "../Models/Route";
 
 const Navbar = styled.nav`
   background-color: #ffffff;
@@ -88,6 +88,7 @@ const Button = styled.button`
 `;
 
 interface Props {
+  routes: Route[];
   onLogout: Function;
 }
 
@@ -112,7 +113,7 @@ function NavigationBar(props: Props) {
               <AiIcons.AiOutlineClose />
             </CloseIcon>
           </CloseMenu>
-          {SidebarData.map((item, index) => {
+          {props.routes.map((item, index) => {
             return (
               <Item key={index}>
                 <Link to={item.path}>
