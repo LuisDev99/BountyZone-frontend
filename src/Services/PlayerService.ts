@@ -1,6 +1,6 @@
 import axios from "axios";
 import { GetAPIURL } from "../Helpers/Constants";
-import Player from "../Models/Player";
+import Player, { AddPlayer, PlayerRole } from "../Models/Player";
 
 class PlayerService {
   private URL: string = "";
@@ -9,19 +9,20 @@ class PlayerService {
     this.URL = GetAPIURL() + "players";
   }
 
+  getPlayerRoles() {
+    return axios.get<PlayerRole[]>(`${this.URL}/roles`)
+  }
+
   getPlayerByID(email: string) {
     return axios.get<Player>(`${this.URL}`, {
       params: { email }
     })
   }
 
-  createAccount(email: string, nickName: string, playerRoleID: number) {
+  createAccount(playerInfo: AddPlayer) {
+    console.log(playerInfo);
     return axios.post<Player>(`${this.URL}`, {
-      data: {
-        email,
-        nickName,
-        playerRoleID
-      }
+      ...playerInfo,
     })
   }
 }
