@@ -1,6 +1,6 @@
 import axios from "axios";
 import { GetAPIURL } from "../Helpers/Constants";
-import Player, { AddPlayer, PlayerRole } from "../Models/Player";
+import { Player, AddPlayer, PlayerRole } from "../Models/Player";
 
 class PlayerService {
   private URL: string = "";
