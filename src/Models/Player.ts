@@ -1,4 +1,4 @@
-interface Player {
+export interface Player {
   ID: number;
   Email: string;
   NickName: string;
@@ -17,6 +17,3 @@ export interface PlayerRole {
   ImageURL: string;
   Description: string;
 }
-
-
-export default Player;
