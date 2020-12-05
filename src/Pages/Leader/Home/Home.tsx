@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div>
       <LeaderProfileCard leader={leader} />
-      <PopularVictims />
+      <PopularVictims leader={leader} />
     </div>
   );
 }
