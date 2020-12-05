@@ -5,6 +5,7 @@ import { useAsyncEffect } from "use-async-effect";
 
 import StyledComponents from "./StyledComponents";
 import PlayerService from "../../Services/PlayerService";
+import { GetRouteBasedOnRole } from "../../Helpers/Constants";
 
 const { Button } = StyledComponents;
 
@@ -18,13 +19,8 @@ function LoginPage() {
         // Check if the player exists
         const response = await new PlayerService().getPlayerByID(user.email);
 
-        if (response.data.PlayerRole.Type === "Hunter") {
-          history.push("/hunters");
-        }
-
-        if (response.data.PlayerRole.Type === "Leader") {
-          history.push("/leaders");
-        }
+        // Redirect base on the player's role
+        history.push(GetRouteBasedOnRole(response.data.PlayerRole));
       } catch (e) {
         // Backend will return 404 if the player does not have an account yet
         // If no account was found for this user, take him to register page for him to choose a character
