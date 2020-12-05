@@ -6,11 +6,13 @@ import { useAsyncEffect } from "use-async-effect";
 import StyledComponents from "./StyledComponents";
 import PlayerService from "../../Services/PlayerService";
 import { GetRouteBasedOnRole } from "../../Helpers/Constants";
+import { useGameContext } from "../../GameContext";
 
 const { Button } = StyledComponents;
 
 function LoginPage() {
   const history = useHistory();
+  const { setPlayerContext } = useGameContext();
   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
 
   useAsyncEffect(async () => {
@@ -18,6 +20,8 @@ function LoginPage() {
       try {
         // Check if the player exists
         const response = await new PlayerService().getPlayerByID(user.email);
+
+        setPlayerContext(response.data);
 
         // Redirect base on the player's role
         history.push(GetRouteBasedOnRole(response.data.PlayerRole));
