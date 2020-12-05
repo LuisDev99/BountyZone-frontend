@@ -106,6 +106,7 @@ function NavigationBar(props: Props) {
           <Button onClick={() => props.onLogout()}>Sign out</Button>
         </Navbar>
       </div>
+
       <Sidebar className={sidebar ? "active" : ""}>
         <MenuItems onClick={showSidebar}>
           <CloseMenu>
