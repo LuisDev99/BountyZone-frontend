@@ -19,7 +19,7 @@ function LoginPage() {
     if (isAuthenticated && user) {
       try {
         // Check if the player exists
-        const response = await new PlayerService().getPlayerByID(user.email);
+        const response = await new PlayerService().getPlayerByEmail(user.email);
 
         setPlayerContext(response.data);
 
