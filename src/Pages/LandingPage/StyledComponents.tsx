@@ -28,7 +28,7 @@ const Image = styled.img`
 `;
 
 const StyledLink = styled(Link)`
-  color: #0ef052;
+  color: ${props => props.theme.color};
   font-size: 1.2rem;
   text-decoration: none;
 `;
