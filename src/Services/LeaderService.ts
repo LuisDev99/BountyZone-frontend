@@ -9,7 +9,9 @@ class LeaderService {
     this.URL = GetAPIURL() + "leaders";
   }
 
-
+  getPopularVictims() {
+    return axios.get<Leader[]>(`${this.URL}/popular-victims`)
+  }
 }
 
 export default LeaderService;
