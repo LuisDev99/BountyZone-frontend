@@ -4,12 +4,13 @@ import { Leader } from "../../../Models/Leader";
 import { EmojiSpan, Card, Text } from "./StyledComponents";
 
 interface Props {
+  title: string;
   leader: Leader;
 }
-export function LeaderProfileCard({ leader }: Props) {
+export function LeaderProfileCard({ leader, title }: Props) {
   return (
     <Card>
-      <h2>Your Stats so far</h2>
+      <h2>{title}</h2>
       <Text>
         <EmojiSpan>Money 💸</EmojiSpan>: {leader.Money}$
       </Text>
