@@ -1,13 +1,12 @@
 import axios from "axios";
-import { GetAPIURL } from "../Helpers/Constants";
 import { Bounty } from "../Models/Bounty";
 import { Leader } from "../Models/Leader";
+import BaseService from "./BaseService";
 
-class LeaderService {
-  private URL: string = "";
+class LeaderService extends BaseService {
 
   constructor() {
-    this.URL = GetAPIURL() + "leaders";
+    super("leaders");
   }
 
   placeBountyOnVictim(bounty: Bounty) {

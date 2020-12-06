@@ -1,14 +1,13 @@
 import axios from "axios";
-import { GetAPIURL } from "../Helpers/Constants";
 import { Hunter } from "../Models/Hunter";
 import { Leader } from "../Models/Leader";
 import { Player, AddPlayer, PlayerRole } from "../Models/Player";
+import BaseService from "./BaseService";
 
-class PlayerService {
-  private URL: string = "";
+class PlayerService extends BaseService {
 
   constructor() {
-    this.URL = GetAPIURL() + "players";
+    super("players");
   }
 
   createAccount(playerInfo: AddPlayer) {
