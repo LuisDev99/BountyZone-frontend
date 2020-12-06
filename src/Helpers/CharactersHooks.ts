@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useAsyncEffect from "use-async-effect";
 import { useGameContext } from "../GameContext";
+import { Hunter } from "../Models/Hunter";
 import { Leader } from "../Models/Leader";
 import PlayerService from "../Services/PlayerService";
 
@@ -9,8 +10,7 @@ export const useLeaderInfo = () => {
   const [leader, setLeader] = useState<Leader>();
 
   useAsyncEffect(async () => {
-    // If component did mount and there is no leader in the context,
-    // fetch the leader by the player ID
+    // If component did mount, fetch the leader by the player ID
     if (!leader) {
       try {
         const response = await new PlayerService().getLeaderByPlayerID(
@@ -19,7 +19,7 @@ export const useLeaderInfo = () => {
 
         setLeader(response.data);
       } catch (e) {
-        console.log("Error while loading the hunter by its player ID.");
+        console.log("Error while loading the leader by its player ID.");
         console.log({ e });
       }
     }
@@ -29,20 +29,18 @@ export const useLeaderInfo = () => {
 }
 
 export const useHunterInfo = () => {
-  // TODO: Do the same but for the hunter
-
-  const { player, leader, setLeaderContext } = useGameContext();
+  const { player } = useGameContext();
+  const [hunter, setHunter] = useState<Hunter>();
 
   useAsyncEffect(async () => {
-    // If component did mount and there is no leader in the context,
-    // fetch the leader by the player ID
-    if (!leader) {
+    // If component did mount, fetch the Hunter by the player ID
+    if (!hunter) {
       try {
-        const response = await new PlayerService().getLeaderByPlayerID(
+        const response = await new PlayerService().getHunterByPlayerID(
           player!.ID
         );
 
-        setLeaderContext(response.data);
+        setHunter(response.data);
       } catch (e) {
         console.log("Error while loading the hunter by its player ID.");
         console.log({ e });
@@ -50,5 +48,5 @@ export const useHunterInfo = () => {
     }
   }, []);
 
-  return { leader, player };
+  return { hunter, player };
 }
