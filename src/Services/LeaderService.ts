@@ -23,6 +23,17 @@ class LeaderService {
   getLeaderBounties(leaderID: number) {
     return axios.get<Bounty[]>(`${this.URL}/${leaderID}/bounties`)
   }
+
+  getBountiesAgainstLeader(leaderID: number) {
+    return axios.get<Bounty[]>(`${this.URL}/${leaderID}/opposing-bounties`)
+  }
+
+  defendFromBounty(bounty: Bounty) {
+    console.log(bounty)
+    return axios.patch(`${this.URL}/defend-bounty`, {
+      ...bounty
+    });
+  }
 }
 
 export default LeaderService;
