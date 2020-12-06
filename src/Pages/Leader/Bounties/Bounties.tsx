@@ -8,20 +8,20 @@ import { FriendlyBountyCard, HostileBountyCard } from "./BountyCard";
 
 import { BountiesSection, Title, Text } from "./StyledComponents";
 
-interface Bounties {
+interface BountiesState {
   leaderBounties: Bounty[];
   bountiesAgainstLeader: Bounty[];
 }
 
 // Create this object in order for the bounties state variable never be undefined
-const defaultBounties: Bounties = {
+const defaultBounties: BountiesState = {
   leaderBounties: [],
   bountiesAgainstLeader: [],
 };
 
 export default function Bounties() {
   const { leader, player } = useLeaderInfo();
-  const [bounties, setBounties] = useState<Bounties>(defaultBounties);
+  const [bounties, setBounties] = useState<BountiesState>(defaultBounties);
 
   useAsyncEffect(async () => {
     // Load the leader's bounties only if leader exists
