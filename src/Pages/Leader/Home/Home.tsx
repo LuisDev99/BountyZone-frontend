@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <div>
-      <LeaderProfileCard leader={leader} />
+      <LeaderProfileCard title='Your stats so far' leader={leader} />
       <PopularVictims leader={leader} />
     </div>
   );

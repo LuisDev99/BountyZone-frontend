@@ -26,28 +26,45 @@ export const VictimCardsContent = styled.div`
 
 export const VictimCardContent = styled.div`
   width: 200px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
   border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const AttackButton = styled.button`
   color: ${props => props.theme.color};
   background-color: transparent;
   border-color: transparent;
+  width: 80px;
+`;
+
+export const ConfirmButton = styled.button`
+  color: ${props => props.theme.color};
+  background-color: transparent;
+  border-color: transparent;
+  width: 200px;
+  height: 80px;
+  font-size: 1.3rem;
+  margin: 0 auto;
+  display: block;
 `;
 
 export const Card = styled.div`
+  width: 40%;
+  height: 30%;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
   text-align: center;
   align-content: center;
   justify-content: center;
-  height: 30%;
-  width: 40%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
