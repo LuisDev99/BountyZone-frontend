@@ -1,5 +1,6 @@
 import axios from "axios";
 import { GetAPIURL } from "../Helpers/Constants";
+import { Hunter } from "../Models/Hunter";
 import { Leader } from "../Models/Leader";
 import { Player, AddPlayer, PlayerRole } from "../Models/Player";
 
@@ -32,7 +33,7 @@ class PlayerService {
   }
 
   getHunterByPlayerID(id: number) {
-    return axios.get<Leader>(`${this.URL}/${id}/hunter`)
+    return axios.get<Hunter>(`${this.URL}/${id}/hunter`)
   }
 
   getLeaderByPlayerID(id: number) {
