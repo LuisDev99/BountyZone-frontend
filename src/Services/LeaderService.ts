@@ -19,6 +19,10 @@ class LeaderService {
   getPopularVictims() {
     return axios.get<Leader[]>(`${this.URL}/popular-victims`)
   }
+
+  getLeaderBounties(leaderID: number) {
+    return axios.get<Bounty[]>(`${this.URL}/${leaderID}/bounties`)
+  }
 }
 
 export default LeaderService;
