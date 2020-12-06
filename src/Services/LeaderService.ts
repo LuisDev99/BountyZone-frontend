@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Bounty } from "../Models/Bounty";
+import { AddBounty, Bounty } from "../Models/Bounty";
 import { Leader } from "../Models/Leader";
 import BaseService from "./BaseService";
 
@@ -9,7 +9,7 @@ class LeaderService extends BaseService {
     super("leaders");
   }
 
-  placeBountyOnVictim(bounty: Bounty) {
+  placeBountyOnVictim(bounty: AddBounty) {
     return axios.post(`${this.URL}/place-bounty`, {
       ...bounty
     })
