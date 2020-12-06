@@ -1,9 +1,12 @@
+import { useState } from "react";
 import useAsyncEffect from "use-async-effect";
 import { useGameContext } from "../GameContext";
+import { Leader } from "../Models/Leader";
 import PlayerService from "../Services/PlayerService";
 
 export const useLeaderInfo = () => {
-  const { player, leader, setLeaderContext } = useGameContext();
+  const { player } = useGameContext();
+  const [leader, setLeader] = useState<Leader>();
 
   useAsyncEffect(async () => {
     // If component did mount and there is no leader in the context,
@@ -14,7 +17,7 @@ export const useLeaderInfo = () => {
           player!.ID
         );
 
-        setLeaderContext(response.data);
+        setLeader(response.data);
       } catch (e) {
         console.log("Error while loading the hunter by its player ID.");
         console.log({ e });
