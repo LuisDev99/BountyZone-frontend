@@ -2,7 +2,7 @@ import { PlayerRole } from "../Models/Player";
 
 const Constants = {
   DEV_API_URL: "https://localhost:44369/api/",
-  PROD_API_URL: "",
+  PROD_API_URL: "https://bountyzoneapi20201207013622.azurewebsites.net/api/",
 }
 
 export function GetAPIURL() {
