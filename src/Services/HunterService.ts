@@ -8,6 +8,12 @@ class HunterService extends BaseService {
     super("hunters");
   }
 
+  confirmBounty(hunterID: number, bounty: Bounty) {
+    return axios.patch(`${this.URL}/${hunterID}/confirm-bounty`, {
+      ...bounty
+    });
+  }
+
   getAvailableBounties() {
     return axios.get<Bounty[]>(`${this.URL}/bounties`)
   }
