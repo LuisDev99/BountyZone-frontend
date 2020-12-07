@@ -7,6 +7,7 @@ import PlayerService from "../../Services/PlayerService";
 import { PlayerRole } from "../../Models/Player";
 import { GetRouteBasedOnRole } from "../../Helpers/Constants";
 import { useHistory } from "react-router";
+import { useGameContext } from "../../GameContext";
 
 const {
   Content,
@@ -36,6 +37,7 @@ function Character(props: CharacterProps) {
 
 export default function CreateRole() {
   const history = useHistory();
+  const { setPlayerContext } = useGameContext();
   const { user, isAuthenticated } = useAuth0();
   const [playerRoles, setPlayerRoles] = useState<PlayerRole[]>([]);
 
@@ -52,6 +54,9 @@ export default function CreateRole() {
           NickName: user.nickname,
           PlayerRoleID: selectedRoleID,
         });
+
+        // Save the new player in the global context
+        setPlayerContext(response.data);
 
         // Redirect base on the new player's role
         history.push(GetRouteBasedOnRole(response.data.PlayerRole));
