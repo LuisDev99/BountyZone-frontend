@@ -54,6 +54,15 @@ export default function Bounties() {
 
   const { bountiesAgainstLeader, leaderBounties } = bounties;
 
+  if (bountiesAgainstLeader?.length === 0 && leaderBounties?.length === 0) {
+    return (
+      <Title>
+        Looks like you don't have any bounties going on. Return to the home page
+        to create bounties and get rewards!
+      </Title>
+    );
+  }
+
   return (
     <div>
       {bountiesAgainstLeader && bountiesAgainstLeader.length !== 0 && (
