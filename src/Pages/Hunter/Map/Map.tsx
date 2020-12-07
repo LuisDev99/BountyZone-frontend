@@ -3,10 +3,17 @@ import useAsyncEffect from "use-async-effect";
 import { Bounty } from "../../../Models/Bounty";
 import { useHunterInfo } from "../../../Helpers/CharactersHooks";
 import HunterService from "../../../Services/HunterService";
+import { BountyGrid, CenteredDiv } from "./StyledComponents";
+import BountyItem from "./BountyItem";
+
+function compareBountiesPriceDesc(a: Bounty, b: Bounty) {
+  return b.Price - a.Price;
+}
 
 export default function Map() {
   const { player, hunter } = useHunterInfo();
   const [bounties, setBounties] = useState<Bounty[]>();
+  const [sortByPrice, setSortByPrice] = useState(true);
 
   useAsyncEffect(async () => {
     if (!hunter) return;
@@ -24,15 +31,46 @@ export default function Map() {
   if (!bounties) {
     return <h2>Loading bounties.... You'll get em!</h2>;
   }
-  console.log(bounties);
+
+  async function handleBountyConfirm(bounty: Bounty) {
+    try {
+      await new HunterService().confirmBounty(hunter!.ID, bounty);
+      alert("Bounty is yours!");
+    } catch (e) {
+      console.log("Error confirming bounty: ", e);
+    }
+  }
+
   return (
-    <div>
-      {bounties.length !== 0 &&
-        bounties.map((bounty, idx) => (
-          <div key={idx}>
-            {bounty.ID} - {bounty.Price} - {bounty.Time}
-          </div>
-        ))}
-    </div>
+    <CenteredDiv>
+      <h3>List of available bounties. Quick, Grab some!</h3>
+      <p>
+        Sort bounties by price:
+        <input
+          type='checkbox'
+          checked={sortByPrice}
+          onChange={() => setSortByPrice(!sortByPrice)}
+        />
+      </p>
+      <BountyGrid>
+        {bounties.length !== 0 && sortByPrice
+          ? bounties
+              .sort(compareBountiesPriceDesc)
+              .map((bounty, idx) => (
+                <BountyItem
+                  key={idx}
+                  bounty={bounty}
+                  onBountyConfirm={handleBountyConfirm}
+                />
+              ))
+          : bounties.map((bounty, idx) => (
+              <BountyItem
+                key={idx}
+                bounty={bounty}
+                onBountyConfirm={handleBountyConfirm}
+              />
+            ))}
+      </BountyGrid>
+    </CenteredDiv>
   );
 }

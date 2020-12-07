@@ -28,7 +28,6 @@ class LeaderService extends BaseService {
   }
 
   defendFromBounty(bounty: Bounty) {
-    console.log(bounty)
     return axios.patch(`${this.URL}/defend-bounty`, {
       ...bounty
     });
