@@ -29,7 +29,6 @@ const defaultModalInfo: ModalInfo = {
 export default function PopularVictims({ leader }: PopularVictimsProps) {
   const [modalInfo, setModalInfo] = useState<ModalInfo>(defaultModalInfo);
   const [popularVictims, setPopularVictims] = useState<Leader[]>([]);
-  const [selectedVictim, setSelectedVictim] = useState<Leader>();
 
   useAsyncEffect(async () => {
     try {
@@ -58,28 +57,28 @@ export default function PopularVictims({ leader }: PopularVictimsProps) {
     });
   }
 
-  async function handleBountyConfirm(bountyInfo: BountyInfo) {
-    console.log(leader, selectedVictim);
+  async function handleBountyConfirm(victim: Leader, bountyInfo: BountyInfo) {
     try {
       await new LeaderService().placeBountyOnVictim({
         Price: bountyInfo.price,
         LeaderID: leader.ID,
         Time: bountyInfo.time,
-        VictimID: selectedVictim!.ID,
+        VictimID: victim.ID,
       });
 
+      alert("You've succesfully created the bounty!");
       setModalInfo(defaultModalInfo);
     } catch (e) {
       console.log("Failed to place bounty on target", e);
+      alert(e.response.data);
     }
   }
 
   function handlePlaceBounty(victim: Leader) {
-    setSelectedVictim(victim);
     setModalInfo({
       title: "Your enemy's information. Want to attack him?",
       isOpen: true,
-      content: <BountyCard onConfirm={handleBountyConfirm} />,
+      content: <BountyCard victim={victim} onConfirm={handleBountyConfirm} />,
     });
   }
 

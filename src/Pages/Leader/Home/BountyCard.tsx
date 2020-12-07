@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { BountyInfo } from "../../../Models/Bounty";
+import { Leader } from "../../../Models/Leader";
 import { ConfirmButton, EmojiSpan } from "./StyledComponents";
 
 interface Props {
-  onConfirm: (bountyInfo: BountyInfo) => void;
+  victim: Leader;
+  onConfirm: (victim: Leader, bountyInfo: BountyInfo) => void;
 }
 
-export default function BountyCard({ onConfirm }: Props) {
+export default function BountyCard({ victim, onConfirm }: Props) {
   const [price, setPrice] = useState(0);
   const [time, setTime] = useState(new Date());
 
@@ -19,7 +21,7 @@ export default function BountyCard({ onConfirm }: Props) {
   }
 
   function handleConfirm() {
-    onConfirm({
+    onConfirm(victim, {
       price,
       time,
     });
