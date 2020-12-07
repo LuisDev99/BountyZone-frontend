@@ -10,7 +10,7 @@ interface Props {
 
 export default function BountyCard({ victim, onConfirm }: Props) {
   const [price, setPrice] = useState(0);
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState<Date>();
 
   function handleChangePrice(event: React.ChangeEvent<HTMLInputElement>) {
     setPrice(+event.target.value);
@@ -21,9 +21,12 @@ export default function BountyCard({ victim, onConfirm }: Props) {
   }
 
   function handleConfirm() {
+    let defaultAttackDate = new Date();
+    defaultAttackDate.setDate(defaultAttackDate.getDate() + 2);
+
     onConfirm(victim, {
       price,
-      time,
+      time: time ?? defaultAttackDate,
     });
   }
 
@@ -32,7 +35,8 @@ export default function BountyCard({ victim, onConfirm }: Props) {
       <h3>How much are you willing to pay?</h3>
       <div>
         <p>
-          Bounty price: <input type='number' onChange={handleChangePrice} />
+          Bounty price: <input type='number' onChange={handleChangePrice} />{" "}
+          [Bounties can be free!]
         </p>
       </div>
       <h3>When do you need to attack him?</h3>
@@ -43,7 +47,8 @@ export default function BountyCard({ victim, onConfirm }: Props) {
       </p>
       <div>
         <p>
-          Time: <input type='datetime-local' onChange={handleChangeTime} />
+          Time: <input type='datetime-local' onChange={handleChangeTime} />{" "}
+          [Attack will default to 2 days from now if no time is provided]
         </p>
       </div>
       <ConfirmButton onClick={handleConfirm}>

@@ -39,7 +39,8 @@ export const AttackButton = styled.button`
   color: ${props => props.theme.color};
   background-color: transparent;
   border-color: transparent;
-  width: 80px;
+  width: 150px;
+  font-size: 1.2rem;
 `;
 
 export const ConfirmButton = styled.button`

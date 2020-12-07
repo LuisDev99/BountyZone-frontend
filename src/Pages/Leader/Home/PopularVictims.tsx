@@ -94,9 +94,7 @@ export default function PopularVictims({ leader }: PopularVictimsProps) {
 
       <VictimsContent>
         <h3>Not feeling happy about your performance? </h3>
-        <Text>
-          Here are the most popular leaders for you to take down and feel better
-        </Text>
+        <Text>Try creating bounties! Here are the most popular leaders:</Text>
 
         {popularVictims.length === 0 ? (
           <h4>Loading your targets....</h4>
