@@ -3,12 +3,25 @@ import { useHistory } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAsyncEffect } from "use-async-effect";
 
-import StyledComponents from "./StyledComponents";
+import { Button, LoginCard } from "./StyledComponents";
 import PlayerService from "../../Services/PlayerService";
 import { GetRouteBasedOnRole } from "../../Helpers/Constants";
 import { useGameContext } from "../../GameContext";
 
-const { Button } = StyledComponents;
+import bg from "../../Assets/login_bg.jpg";
+import { Text } from "../Leader/Home/StyledComponents";
+
+const imageBGDivStyle: React.CSSProperties = {
+  backgroundImage: `url(${bg})`,
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  width: "100vw",
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignContent: "center",
+  textAlign: "center",
+};
 
 function LoginPage() {
   const history = useHistory();
@@ -34,14 +47,17 @@ function LoginPage() {
   }, [isAuthenticated, user]);
 
   return (
-    <div>
-      <Button
-        onClick={() => {
-          loginWithRedirect();
-        }}
-      >
-        Log Me In
-      </Button>
+    <div style={imageBGDivStyle}>
+      <LoginCard>
+        <Text>Ready for mayhem?</Text>
+        <Button
+          onClick={() => {
+            loginWithRedirect();
+          }}
+        >
+          LOGIN
+        </Button>
+      </LoginCard>
     </div>
   );
 }

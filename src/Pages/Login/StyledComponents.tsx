@@ -1,21 +1,35 @@
 import styled from "styled-components";
 
-const Div = styled.div`
+export const Div = styled.div`
   display: flex;
   flex-direction: row;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   border-radius: 0.15rem;
   width: 160px;
   height: 60px;
   margin: 20vh auto;
-  background: linear-gradient(#f1da36 0%, #fca86c 99%);
+  color: white;
+  background: linear-gradient(#f1da36 0%, transparent 99%);
 `;
 
-const StyledComponents = {
-  Div,
-  Button,
-};
+export const LoginCard = styled.div`
+  width: 40%;
+  height: 500px;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  color: white;
+  background: linear-gradient(to bottom right, #46494d 13%, transparent 90%);
+  transition: 0.3s;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
-export default StyledComponents;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+`;
