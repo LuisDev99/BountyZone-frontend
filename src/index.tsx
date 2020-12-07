@@ -21,6 +21,10 @@ const uri = process.env.REACT_APP_AUTH0_CALLBACK_URL ?? "";
 const domain = process.env.REACT_APP_AUTH0_DOMAIN ?? "";
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID ?? "";
 
+console.log({ uri });
+console.log({ domain });
+console.log({ clientId });
+
 ReactDOM.render(
   <React.StrictMode>
     <GameProvider>
