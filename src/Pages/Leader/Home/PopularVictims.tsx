@@ -101,14 +101,17 @@ export default function PopularVictims({ leader }: PopularVictimsProps) {
           <h4>Loading your targets....</h4>
         ) : (
           <VictimCardsContent>
-            {popularVictims.map((victim, idx) => (
-              <VictimCard
-                key={idx}
-                victim={victim}
-                onViewVictim={handleViewVictim}
-                onPlaceBounty={handlePlaceBounty}
-              />
-            ))}
+            {popularVictims.map(
+              (victim, idx) =>
+                leader.ID !== victim.ID && (
+                  <VictimCard
+                    key={idx}
+                    victim={victim}
+                    onViewVictim={handleViewVictim}
+                    onPlaceBounty={handlePlaceBounty}
+                  />
+                )
+            )}
           </VictimCardsContent>
         )}
       </VictimsContent>
