@@ -3,8 +3,20 @@ import useAsyncEffect from "use-async-effect";
 import { Bounty } from "../../../Models/Bounty";
 import { useHunterInfo } from "../../../Helpers/CharactersHooks";
 import HunterService from "../../../Services/HunterService";
-import { BountyGrid, CenteredDiv } from "./StyledComponents";
+import { BountyGrid } from "./StyledComponents";
 import BountyItem from "./BountyItem";
+
+import bg from "../../../Assets/hunter_bg5.jpg";
+
+const imageBGDivStyle: React.CSSProperties = {
+  backgroundImage: `url(${bg})`,
+  backgroundSize: "100% 100%",
+  backgroundRepeat: "no-repeat",
+  width: "100%",
+  height: "100vh",
+  textAlign: "center",
+  justifyContent: "center",
+};
 
 function compareBountiesPriceDesc(a: Bounty, b: Bounty) {
   return b.Price - a.Price;
@@ -42,8 +54,8 @@ export default function Map() {
   }
 
   return (
-    <CenteredDiv>
-      <h3>List of available bounties. Quick, Grab some!</h3>
+    <div style={imageBGDivStyle}>
+      <h3>List of available bounties. Quick, Grab some!!</h3>
       <p>
         Sort bounties by price:
         <input
@@ -71,6 +83,6 @@ export default function Map() {
               />
             ))}
       </BountyGrid>
-    </CenteredDiv>
+    </div>
   );
 }
