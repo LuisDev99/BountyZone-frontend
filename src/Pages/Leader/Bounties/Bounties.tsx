@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
-import useAsyncEffect from "use-async-effect";
-import { useLeaderInfo } from "../../../Helpers/CharactersHooks";
-import { Bounty } from "../../../Models/Bounty";
-import LeaderService from "../../../Services/LeaderService";
-import { FriendlyBountyCard, HostileBountyCard } from "./BountyCard";
 
+import LeaderService from "../../../Services/LeaderService";
+import useAsyncEffect from "use-async-effect";
+
+import { Bounty } from "../../../Models/Bounty";
+import { useLeaderInfo } from "../../../Helpers/CharactersHooks";
 import { BountiesSection, Title, Text } from "./StyledComponents";
+import { FriendlyBountyCard, HostileBountyCard } from "./BountyCard";
 
 interface BountiesState {
   leaderBounties: Bounty[];

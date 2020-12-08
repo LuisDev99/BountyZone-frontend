@@ -1,9 +1,9 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
-import { Redirect, Route, Switch } from "react-router";
-
 import NavigationBar from "../../Components/Navbar";
+
 import { routes } from "./Hunter.routes";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Redirect, Route, Switch } from "react-router";
 
 function LeaderPage() {
   const { logout } = useAuth0();

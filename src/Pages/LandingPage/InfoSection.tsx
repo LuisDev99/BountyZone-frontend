@@ -1,10 +1,9 @@
 import React from "react";
-import SyledComponents from "./StyledComponents";
 
 import hunter from "../../Assets/hunter.jpg";
 import leader from "../../Assets/leader1.jpg";
 
-const { Image, Content } = SyledComponents;
+import { Image, Content } from "./StyledComponents";
 
 interface CharacterDisplayProps {
   Text: string;

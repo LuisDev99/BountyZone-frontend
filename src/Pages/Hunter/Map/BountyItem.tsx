@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Bounty } from "../../../Models/Bounty";
 import { EmojiSpan } from "../../Leader/Home/StyledComponents";
 import { BountyCardItem, Button } from "./StyledComponents";

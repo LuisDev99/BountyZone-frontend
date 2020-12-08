@@ -1,8 +1,9 @@
 import React from "react";
+import LeaderService from "../../../Services/LeaderService";
+
 import { Bounty } from "../../../Models/Bounty";
 import { Card, DefendButton } from "./StyledComponents";
 import { EmojiSpan } from "../Home/StyledComponents";
-import LeaderService from "../../../Services/LeaderService";
 
 interface Props {
   bounty: Bounty;

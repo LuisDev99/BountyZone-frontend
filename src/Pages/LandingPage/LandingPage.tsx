@@ -1,11 +1,10 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-import StyledComponents from "./StyledComponents";
 import background from "../../Assets/background1.jpg";
 import InfoSection from "./InfoSection";
 
-const { Body, Content, Image, Title, StyledLink } = StyledComponents;
+import { Body, Content, Image, Title, StyledLink } from "./StyledComponents";
 
 function LandingPage() {
   return (

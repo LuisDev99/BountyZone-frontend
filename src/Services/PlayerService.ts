@@ -1,8 +1,9 @@
 import axios from "axios";
+import BaseService from "./BaseService";
+
 import { Hunter } from "../Models/Hunter";
 import { Leader } from "../Models/Leader";
 import { Player, AddPlayer, PlayerRole } from "../Models/Player";
-import BaseService from "./BaseService";
 
 class PlayerService extends BaseService {
 

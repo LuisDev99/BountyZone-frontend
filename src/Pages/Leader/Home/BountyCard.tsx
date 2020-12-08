@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { BountyInfo } from "../../../Models/Bounty";
+
 import { Leader } from "../../../Models/Leader";
+import { BountyInfo } from "../../../Models/Bounty";
 import { ConfirmButton, EmojiSpan } from "./StyledComponents";
 
 interface Props {

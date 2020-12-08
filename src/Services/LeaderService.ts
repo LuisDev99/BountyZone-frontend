@@ -1,7 +1,8 @@
 import axios from "axios";
-import { AddBounty, Bounty } from "../Models/Bounty";
-import { Leader } from "../Models/Leader";
 import BaseService from "./BaseService";
+
+import { Leader } from "../Models/Leader";
+import { AddBounty, Bounty } from "../Models/Bounty";
 
 class LeaderService extends BaseService {
 

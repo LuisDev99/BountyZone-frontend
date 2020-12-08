@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Content = styled.div`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,34 +11,24 @@ const Content = styled.div`
   margin-bottom: 20px;
 `;
 
-const Body = styled.div`
+export const Body = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-size: 2.3rem;
   font-family: Arial, Helvetica, sans-serif;
 `;
 
-const Image = styled.img`
+export const Image = styled.img`
   width: 75vw;
   height: 85vh;
   border-radius: 8px;
 `;
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   color: ${props => props.theme.color};
   font-size: 1.2rem;
   text-decoration: none;
 `;
-
-const StyledComponents = {
-  Content,
-  Body,
-  Title,
-  Image,
-  StyledLink,
-};
-
-export default StyledComponents;

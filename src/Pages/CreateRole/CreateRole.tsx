@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+
 import useAsyncEffect from "use-async-effect";
+import PlayerService from "../../Services/PlayerService";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import PlayerService from "../../Services/PlayerService";
 import { PlayerRole } from "../../Models/Player";
 import { GetRouteBasedOnRole } from "../../Helpers/Constants";
 import { useHistory } from "react-router";

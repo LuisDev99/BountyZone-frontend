@@ -1,7 +1,9 @@
 import React from "react";
+
+import PopularVictims from "./PopularVictims";
+
 import { useLeaderInfo } from "../../../Helpers/CharactersHooks";
 import { LeaderProfileCard } from "./LeaderProfileCard";
-import PopularVictims from "./PopularVictims";
 
 import bg from "../../../Assets/bounty_map_bg1.jpg";
 

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import useAsyncEffect from "use-async-effect";
-import { Bounty } from "../../../Models/Bounty";
-import { useHunterInfo } from "../../../Helpers/CharactersHooks";
-import HunterService from "../../../Services/HunterService";
-import { BountyGrid } from "./StyledComponents";
+
 import BountyItem from "./BountyItem";
+import HunterService from "../../../Services/HunterService";
+import useAsyncEffect from "use-async-effect";
+
+import { Bounty } from "../../../Models/Bounty";
+import { BountyGrid } from "./StyledComponents";
+import { useHunterInfo } from "../../../Helpers/CharactersHooks";
 
 import bg from "../../../Assets/hunter_bg5.jpg";
 

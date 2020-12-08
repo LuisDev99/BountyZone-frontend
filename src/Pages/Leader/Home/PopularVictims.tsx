@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import useAsyncEffect from "use-async-effect";
-import ModalWindow from "../../../Components/ModalWindow";
-import { Leader } from "../../../Models/Leader";
-import LeaderService from "../../../Services/LeaderService";
-import { LeaderProfileCard } from "./LeaderProfileCard";
-import VictimCard from "./VictimCard";
 
-import { Text, VictimsContent, VictimCardsContent } from "./StyledComponents";
 import BountyCard from "./BountyCard";
+import VictimCard from "./VictimCard";
+import ModalWindow from "../../../Components/ModalWindow";
+import LeaderService from "../../../Services/LeaderService";
+import useAsyncEffect from "use-async-effect";
+
+import { Leader } from "../../../Models/Leader";
 import { BountyInfo } from "../../../Models/Bounty";
+import { LeaderProfileCard } from "./LeaderProfileCard";
+import { Text, VictimsContent, VictimCardsContent } from "./StyledComponents";
 
 interface PopularVictimsProps {
   leader: Leader;

@@ -1,15 +1,15 @@
 import React from "react";
-import { useHistory } from "react-router";
-import { useAuth0 } from "@auth0/auth0-react";
-import { useAsyncEffect } from "use-async-effect";
-
-import { Button, LoginCard } from "./StyledComponents";
 import PlayerService from "../../Services/PlayerService";
-import { GetRouteBasedOnRole } from "../../Helpers/Constants";
+
+import { Text } from "../Leader/Home/StyledComponents";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useHistory } from "react-router";
+import { useAsyncEffect } from "use-async-effect";
 import { useGameContext } from "../../GameContext";
+import { Button, LoginCard } from "./StyledComponents";
+import { GetRouteBasedOnRole } from "../../Helpers/Constants";
 
 import bg from "../../Assets/login_bg.jpg";
-import { Text } from "../Leader/Home/StyledComponents";
 
 const imageBGDivStyle: React.CSSProperties = {
   backgroundImage: `url(${bg})`,

@@ -1,6 +1,7 @@
 import axios from "axios";
-import { Bounty } from "../Models/Bounty";
 import BaseService from "./BaseService";
+
+import { Bounty } from "../Models/Bounty";
 
 class HunterService extends BaseService {
 

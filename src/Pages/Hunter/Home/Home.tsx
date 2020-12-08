@@ -1,7 +1,8 @@
 import React from "react";
-import { Card, ButtonLink } from "./StyledComponents";
+
 import { EmojiSpan } from "../../Leader/Home/StyledComponents";
 import { useHunterInfo } from "../../../Helpers/CharactersHooks";
+import { Card, ButtonLink } from "./StyledComponents";
 
 import bg from "../../../Assets/hunter_bg2.jpg";
 
