@@ -15,8 +15,8 @@ export const Button = styled.button`
 `;
 
 export const LoginCard = styled.div`
-  width: 40%;
-  height: 500px;
+  width: 30%;
+  height: 400px;
   display: flex;
   text-align: center;
   align-content: center;
