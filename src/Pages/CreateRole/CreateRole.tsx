@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useAsyncEffect from "use-async-effect";
-import StyledComponents from "./StyledComponents";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import PlayerService from "../../Services/PlayerService";
@@ -9,13 +8,13 @@ import { GetRouteBasedOnRole } from "../../Helpers/Constants";
 import { useHistory } from "react-router";
 import { useGameContext } from "../../GameContext";
 
-const {
+import {
   Content,
   Title,
   Image,
   CharacterOptions,
   StyledLink,
-} = StyledComponents;
+} from "./StyledComponents";
 
 interface CharacterProps {
   Title: string;
