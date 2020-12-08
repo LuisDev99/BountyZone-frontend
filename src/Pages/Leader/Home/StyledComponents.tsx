@@ -28,6 +28,7 @@ export const VictimCardContent = styled.div`
   width: 200px;
   cursor: pointer;
   border-radius: 5px;
+  background: linear-gradient(to bottom right, #46494d 13%, transparent 90%);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   &:hover {
@@ -65,6 +66,7 @@ export const Card = styled.div`
   justify-content: center;
   transition: 0.3s;
   border-radius: 5px;
+  background: linear-gradient(to bottom right, #46494d 13%, transparent 90%);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   &:hover {
