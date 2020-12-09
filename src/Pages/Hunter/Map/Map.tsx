@@ -20,14 +20,9 @@ const imageBGDivStyle: React.CSSProperties = {
   justifyContent: "center",
 };
 
-function compareBountiesPriceDesc(a: Bounty, b: Bounty) {
-  return b.Price - a.Price;
-}
-
 export default function Map() {
   const { player, hunter } = useHunterInfo();
   const [bounties, setBounties] = useState<Bounty[]>();
-  const [sortByPrice, setSortByPrice] = useState(true);
 
   useAsyncEffect(async () => {
     if (!hunter) return;
@@ -58,32 +53,15 @@ export default function Map() {
   return (
     <div style={imageBGDivStyle}>
       <h3>List of available bounties. Quick, Grab some!!</h3>
-      <p>
-        Sort bounties by price:
-        <input
-          type='checkbox'
-          checked={sortByPrice}
-          onChange={() => setSortByPrice(!sortByPrice)}
-        />
-      </p>
       <BountyGrid>
-        {bounties.length !== 0 && sortByPrice
-          ? bounties
-              .sort(compareBountiesPriceDesc)
-              .map((bounty, idx) => (
-                <BountyItem
-                  key={idx}
-                  bounty={bounty}
-                  onBountyConfirm={handleBountyConfirm}
-                />
-              ))
-          : bounties.map((bounty, idx) => (
-              <BountyItem
-                key={idx}
-                bounty={bounty}
-                onBountyConfirm={handleBountyConfirm}
-              />
-            ))}
+        {bounties.length !== 0 &&
+          bounties.map((bounty, idx) => (
+            <BountyItem
+              key={idx}
+              bounty={bounty}
+              onBountyConfirm={handleBountyConfirm}
+            />
+          ))}
       </BountyGrid>
     </div>
   );
