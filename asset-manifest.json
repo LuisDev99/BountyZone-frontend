@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/BountyZone-frontend/static/css/main.c2a0b407.chunk.css",
+    "main.js": "/BountyZone-frontend/static/js/main.aea94cfc.chunk.js",
+    "main.js.map": "/BountyZone-frontend/static/js/main.aea94cfc.chunk.js.map",
+    "runtime-main.js": "/BountyZone-frontend/static/js/runtime-main.7ceeca32.js",
+    "runtime-main.js.map": "/BountyZone-frontend/static/js/runtime-main.7ceeca32.js.map",
+    "static/js/2.c6f13d0e.chunk.js": "/BountyZone-frontend/static/js/2.c6f13d0e.chunk.js",
+    "static/js/2.c6f13d0e.chunk.js.map": "/BountyZone-frontend/static/js/2.c6f13d0e.chunk.js.map",
+    "index.html": "/BountyZone-frontend/index.html",
+    "static/css/main.c2a0b407.chunk.css.map": "/BountyZone-frontend/static/css/main.c2a0b407.chunk.css.map",
+    "static/js/2.c6f13d0e.chunk.js.LICENSE.txt": "/BountyZone-frontend/static/js/2.c6f13d0e.chunk.js.LICENSE.txt",
+    "static/media/background1.3d03678f.jpg": "/BountyZone-frontend/static/media/background1.3d03678f.jpg",
+    "static/media/bounty_map_bg1.5ebb9132.jpg": "/BountyZone-frontend/static/media/bounty_map_bg1.5ebb9132.jpg",
+    "static/media/hunter.f52bb8a4.jpg": "/BountyZone-frontend/static/media/hunter.f52bb8a4.jpg",
+    "static/media/hunter_bg2.6dd29d4c.jpg": "/BountyZone-frontend/static/media/hunter_bg2.6dd29d4c.jpg",
+    "static/media/hunter_bg5.4b3fab01.jpg": "/BountyZone-frontend/static/media/hunter_bg5.4b3fab01.jpg",
+    "static/media/leader1.4d35bea6.jpg": "/BountyZone-frontend/static/media/leader1.4d35bea6.jpg",
+    "static/media/login_bg.92f74779.jpg": "/BountyZone-frontend/static/media/login_bg.92f74779.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ceeca32.js",
+    "static/js/2.c6f13d0e.chunk.js",
+    "static/css/main.c2a0b407.chunk.css",
+    "static/js/main.aea94cfc.chunk.js"
+  ]
+}
